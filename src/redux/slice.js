@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import reducer from "./productSlice";
 const initialState = {
-    //value:0,
-    // items: [],
         items : localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')) : [],
 }
 const addToCart = createSlice( {
@@ -10,7 +8,6 @@ const addToCart = createSlice( {
     initialState,
     reducers : {
         addItem : (state,action) => {
-            //state.value+=1;
             console.log(action.payload);
             state.items.push(action.payload);
             localStorage.setItem('cart',JSON.stringify(state.items))
@@ -27,7 +24,6 @@ const addToCart = createSlice( {
 })
 export const {addItem,removeItem,clearAllItems} = addToCart.actions;
 export default addToCart.reducer;
-
 reducers : {
     addItem : (state,action) => {
         console.log(action.payload);
